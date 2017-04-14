@@ -6,7 +6,7 @@ const GoogleMapComponent = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
     defaultZoom={3}
-    defaultCenter={{ lat: 0, lng: 0 }}
+    defaultCenter={{ lat: 30, lng: 0 }}
     onClick={props.onMapClick}
   >
     {props.markers.map((marker, index) => (
