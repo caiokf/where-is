@@ -20,12 +20,21 @@ const GoogleMapComponent = withGoogleMap(props => (
 ));
 
 class WorldMap extends React.Component {
+  mapIcon(index) {
+    if (index === this.props.itinerary.length - 1) {
+      return 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+    }
+
+    return 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'
+  }
+
   render() {
     const markers = this.props.itinerary.map((x, i) => ({
       position: {
         lat: x.lat,
         lng: x.lng,
       },
+      icon: this.mapIcon(i),
       key: 'marker-' + i,
     }));
 
