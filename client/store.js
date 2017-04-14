@@ -23,39 +23,7 @@ const immutableJsLogger = createLogger({
   stateTransformer: stateAsObject,
 });
 
-const loadState = () => {
-  const savedState = localStorage.getItem('state');
-
-  if (savedState === null) {
-    return undefined;
-  };
-
-  const parsedState = JSON.parse(savedState);
-  const newState = {
-    options: Immutable.fromJS(parsedState.options),
-    statistics: Immutable.fromJS(parsedState.statistics)
-  };
-
-  return newState;
-};
-
-const saveState = (state) => {
-  try {
-    localStorage.setItem('state', JSON.stringify(state));
-  }
-  catch (err) {
-    console.log(err)
-  }
-};
-
 const middleware = applyMiddleware(thunk, immutableJsLogger);
-const store = createStore(reducers, loadState(), middleware);
-
-store.subscribe(() => {
-  saveState({
-    options: store.getState().options.toJS(),
-    statistics: store.getState().statistics.toJS(),
-  });
-});
+const store = createStore(reducers, middleware);
 
 export default store;

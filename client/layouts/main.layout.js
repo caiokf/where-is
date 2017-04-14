@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../components/footer/footer';
 import SvgIconRefs from '../components/icons/svg.icon.refs';
 import GithubCorner from '../components/icons/github.corner';
 
@@ -14,7 +13,6 @@ export default class MainLayout extends React.Component {
         <div>
           {this.props.children}
         </div>
-        <Footer footerText="Some footer" />
       </div>
     );
   }
