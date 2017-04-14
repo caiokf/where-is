@@ -1,4 +1,4 @@
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 
 const defaultState = fromJS({
   initialDate: undefined,
@@ -9,7 +9,7 @@ const defaultState = fromJS({
 export default function reducer(state = defaultState, action) {
   switch (action.type) {
     case 'FETCH_LOCATIONS_FULFILLED': {
-      return state.set('itinerary', action.payload);
+      return state.set('itinerary', List(action.payload));
     }
 
     default:

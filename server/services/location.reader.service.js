@@ -29,8 +29,8 @@ export default class LocationReader {
 
   parse(data) {
     return _.map(data, (x) => ({
-      'lat': x.Lat,
-      'lng': x.Long,
+      'lat': parseFloat(x.Lat),
+      'lng': parseFloat(x.Long),
       'latLng': x.Lat + ',' + x.Long,
       'description': x.Location + ', ' + x.Country,
       'date': x.Date
