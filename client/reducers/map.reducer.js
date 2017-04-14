@@ -8,6 +8,10 @@ const defaultState = fromJS({
 
 export default function reducer(state = defaultState, action) {
   switch (action.type) {
+    case 'FETCH_LOCATIONS_FULFILLED': {
+      return state.set('itinerary', action.payload);
+    }
+
     default:
       return state;
   }
