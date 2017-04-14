@@ -1,11 +1,12 @@
 import React from 'react';
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import './world.map.sass';
 
 const GoogleMapComponent = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
     defaultZoom={3}
-    defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+    defaultCenter={{ lat: 0, lng: 0 }}
     onClick={props.onMapClick}
   >
     {props.markers.map((marker, index) => (
@@ -23,10 +24,10 @@ export default class WorldMap extends React.Component {
     return (
       <GoogleMapComponent
         containerElement={
-          <div style={{ height: `100%` }} />
+          <div className="map-container"/>
         }
         mapElement={
-          <div style={{ height: `100%` }} />
+          <div className="map-element"/>
         }
         markers={markers}
       />
